@@ -1,0 +1,6 @@
+# **/__pycache__/
+# **/node_modules/
+
+# --------------------------------------- HRMS IGNORE BEGIN ---------------------------------------
+__pycache__/
+public/node_modules/
