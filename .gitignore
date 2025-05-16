@@ -1,0 +1,6 @@
+# **/__pycache__/
+# **/node_modules/
+
+# --------------------------------------- FRAPPE IGNORE BEGIN ---------------------------------------
+frappe/frappe/__pycache__/
+frappe/frappe/public/node_modules/
