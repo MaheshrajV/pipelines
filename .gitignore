@@ -1,6 +1,31 @@
-# **/__pycache__/
-# **/node_modules/
+**/__pycache__/
+**/node_modules/
 
 # --------------------------------------- FRAPPE IGNORE BEGIN ---------------------------------------
+# Ignore everything first
+frappe/*
+!frappe/frappe/
+
 frappe/frappe/__pycache__/
 frappe/frappe/public/node_modules/
+frappe/frappe/public/dist/
+
+
+# --------------------------------------- ERPNEXT IGNORE BEGIN ---------------------------------------
+# Ignore everything first
+erpnext/*
+!erpnext/erpnext/
+
+erpnext/erpnext/__pycache__/
+erpnext/erpnext/public/node_modules/
+erpnext/erpnext/public/dist/*
+
+
+# --------------------------------------- HRMS IGNORE BEGIN ---------------------------------------
+# Ignore everything first
+hrms/*
+!hrms/hrms/
+
+hrms/hrms/__pycache__/
+hrms/hrms/public/node_modules/
+hrms/hrms/public/dist/
