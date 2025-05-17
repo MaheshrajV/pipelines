@@ -1,19 +1,19 @@
 app_name = "hrms"
-app_title = "Frappe HR"
-app_publisher = "Frappe Technologies Pvt. Ltd."
+app_title = "HRMS"
+app_publisher = "VinAR Solutions"
 app_description = "Modern HR and Payroll Software"
 app_email = "contact@frappe.io"
 app_license = "GNU General Public License (v3)"
 required_apps = ["frappe/erpnext"]
 source_link = "http://github.com/frappe/hrms"
-app_logo_url = "/assets/hrms/images/frappe-hr-logo.svg"
+app_logo_url = "/assets/hrms/images/hrms-logo.png"
 app_home = "/app/overview"
 
 add_to_apps_screen = [
 	{
-		"name": "hrms",
-		"logo": "/assets/hrms/images/frappe-hr-logo.svg",
-		"title": "Frappe HR",
+		"name": app_name,
+		"logo": app_logo_url,
+		"title": app_title,
 		"route": "/app/overview",
 		"has_permission": "hrms.hr.utils.check_app_permission",
 	}
@@ -26,6 +26,8 @@ add_to_apps_screen = [
 # app_include_css = "/assets/hrms/css/hrms.css"
 app_include_js = [
 	"hrms.bundle.js",
+	"/assets/hrms/js/hrms_custom_script.js"
+
 ]
 app_include_css = "hrms.bundle.css"
 
@@ -56,7 +58,10 @@ doctype_js = {
 	"Delivery Trip": "public/js/erpnext/delivery_trip.js",
 	"Bank Transaction": "public/js/erpnext/bank_transaction.js",
 }
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+doctype_list_js = {
+    # "doctype" : "public/js/doctype_list.js",
+    "Employee": "public/js/hrms_custom_employee.js"
+}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
@@ -273,7 +278,6 @@ regional_overrides = {
 	"India": {
 		"hrms.hr.utils.calculate_annual_eligible_hra_exemption": "hrms.regional.india.utils.calculate_annual_eligible_hra_exemption",
 		"hrms.hr.utils.calculate_hra_exemption_for_period": "hrms.regional.india.utils.calculate_hra_exemption_for_period",
-		"hrms.hr.utils.calculate_tax_with_marginal_relief": "hrms.regional.india.utils.calculate_tax_with_marginal_relief",
 	},
 }
 

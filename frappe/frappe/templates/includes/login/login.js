@@ -229,7 +229,8 @@ login.login_handlers = (function () {
 			if (data.message == 'Logged In') {
 				login.set_status({{ _("Success") | tojson }}, 'green');
 				document.body.innerHTML = `{% include "templates/includes/splash_screen.html" %}`;
-				window.location.href = frappe.utils.sanitise_redirect(frappe.utils.get_url_arg("redirect-to")) || data.home_page;
+				// window.location.href = frappe.utils.sanitise_redirect(frappe.utils.get_url_arg("redirect-to")) || data.home_page;
+				window.location.href = frappe.utils.sanitise_redirect(frappe.utils.get_url_arg("redirect-to")) || "/applications";
 			} else if (data.message == 'Password Reset') {
 				window.location.href = frappe.utils.sanitise_redirect(data.redirect_to);
 			} else if (data.message == "No App") {
@@ -246,9 +247,12 @@ login.login_handlers = (function () {
 				}
 
 				if (last_visited && last_visited != "/login") {
-					window.location.href = last_visited;
+					// window.location.href = last_visited;
+					window.location.href = "/applications";
+
 				} else {
-					window.location.href = data.home_page;
+					// window.location.href = data.home_page;
+					window.location.href = "/applications";
 				}
 			} else if (window.location.hash === '#forgot') {
 				if (data.message === 'not found') {

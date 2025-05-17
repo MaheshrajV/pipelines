@@ -28,11 +28,13 @@ app_include_js = [
 	"report.bundle.js",
 	"telemetry.bundle.js",
 	"billing.bundle.js",
+	"/assets/frappe/js/frappe_custom_script.js"
 ]
 
 app_include_css = [
 	"desk.bundle.css",
 	"report.bundle.css",
+	"/assets/frappe/css/frappe_custom.css"
 ]
 app_include_icons = [
 	"/assets/frappe/icons/timeless/icons.svg",

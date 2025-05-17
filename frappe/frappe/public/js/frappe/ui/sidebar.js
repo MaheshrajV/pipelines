@@ -192,17 +192,32 @@ frappe.ui.Sidebar = class Sidebar {
 		if (this.wrapper.find(".standard-sidebar-section")[0]) {
 			this.wrapper.find(".standard-sidebar-section").remove();
 		}
+		this.wrapper.find(".standard-sidebar-section").remove();
 
-		let app_workspaces = frappe.boot.app_data_map[frappe.current_app || "frappe"].workspaces;
+		const segments = window.location.pathname.split("/");
+		// console.log('Make sidebar');
+		const route_key = segments[2]; 
+		// console.log(route_key, 'sidebar_route_key');
 
-		let parent_pages = this.all_pages.filter((p) => !p.parent_page).uniqBy((p) => p.name);
-		if (frappe.current_app === "private") {
-			parent_pages = parent_pages.filter((p) => !p.public);
+		const customSidebar = this.get_custom_sidebar_items(route_key);
+		// const customSidebar = null;
+
+		if (customSidebar) {
+			// Render custom sidebar
+			this.build_sidebar_section(customSidebar.title, customSidebar.items);
 		} else {
-			parent_pages = parent_pages.filter((p) => p.public && app_workspaces.includes(p.name));
-		}
 
-		this.build_sidebar_section("All", parent_pages);
+			let app_workspaces = frappe.boot.app_data_map[frappe.current_app || "frappe"].workspaces;
+
+			let parent_pages = this.all_pages.filter((p) => !p.parent_page).uniqBy((p) => p.name);
+			if (frappe.current_app === "private") {
+				parent_pages = parent_pages.filter((p) => !p.public);
+			} else {
+				parent_pages = parent_pages.filter((p) => p.public && app_workspaces.includes(p.name));
+			}
+
+			this.build_sidebar_section("All", parent_pages);
+		}
 
 		// Scroll sidebar to selected page if it is not in viewport.
 		this.wrapper.find(".selected").length &&
@@ -212,6 +227,47 @@ frappe.ui.Sidebar = class Sidebar {
 		this.setup_sorting();
 		this.set_active_workspace_item();
 		this.set_hover();
+	}
+
+	// Customizing menu items
+	get_custom_sidebar_items(route_key) {
+
+		const customSidebars = {
+			"employee": {
+				title: "Employee",
+				items: [
+					{
+						name: "dashboard-view/Employee%20Lifecycle",
+						title: "Dashboard",
+						icon: "home",
+						link_to: "employee-lifecycle",
+						public: 1
+					},
+					{
+						name: "employee/view/image",
+						title: "Employee",
+						icon: "users",
+						link_to: "employee",
+						public: 1
+					}
+				]
+			},
+			"attendance": {
+				title: "Attendance Panel",
+				items: [
+					{
+						name: "Daily Logs",
+						title: "Daily Logs",
+						icon: "clock",
+						link_to: "daily-attendance-logs",
+						public: 1
+					}
+				]
+			}
+			// Add more custom routes here as needed
+		};
+
+		return customSidebars[route_key] || null;
 	}
 
 	build_sidebar_section(title, root_pages) {

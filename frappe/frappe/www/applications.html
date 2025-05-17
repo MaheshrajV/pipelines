@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <title>APPLICATIONS</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #dfdde8;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    @keyframes slideInFromRight {
+      0% { transform: translateX(100vw); opacity: 0; }
+      60% { transform: translateX(-20px); opacity: 1; }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes iconPopIn {
+      0% { opacity: 0; transform: scale(0.3); }
+      60% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes rotateIn {
+      from { transform: rotate(-100deg); opacity: 0; }
+      to { transform: rotate(0deg); opacity: 1; }
+    }
+
+    .company-logo {
+      position: absolute;
+      top: 4%;
+      right: 4%;
+      width: 90px;
+      height: 80px;
+      animation: rotateIn 1s ease-out;
+      z-index: 999;
+    }
+
+    .icon-container {
+      background: #dfdde8;
+      padding: 100px;
+      border-radius: 32px;
+      box-shadow: 8px 8px 20px #ffffff;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 40px;
+      width: 65%;
+      max-width: 1100px;
+      animation: slideInFromRight 0.8s ease-out forwards;
+      text-align: center;
+      position: relative;
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: iconPopIn 1s ease-out forwards;
+      animation-fill-mode: both;
+    }
+
+    .icon-item a {
+      background-color: #f0fdf4;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.08),
+                  -2px -2px 6px rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      margin-bottom: 12px;
+    }
+
+    .icon-item a:hover {
+      transform: scale(1.5);
+    }
+
+    .icon-item img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .icon-item a:hover img {
+      transform: scale(1.1);
+    }
+
+    .icon-item p {
+      margin: 0;
+      font-size: 16px;
+      color: #8a6d1d;
+      font-weight: 600;
+    }
+
+    .icon-item:nth-child(n) {
+      animation-delay: calc(0.2s * var(--i));
+    }
+
+    .logout-btn {
+      position: fixed;
+      bottom: 10%;
+      left: 5%;
+      display: flex;
+      align-items: center;
+      border-radius: 50px;
+      gap: 8px;
+      background: #dfdde8;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      color: #333;
+      z-index: 1000;
+      transition: transform 0.2s ease;
+    }
+
+    .logout-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .logout-btn:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  {% if frappe.session.user == 'Guest' %}
+    <script> window.location.href = "/login"; </script>
+  {% endif %}
+
+  {{ render_logo_html or "" }}
+  <!-- <p>Logo: {{ logo }}</p> -->
+
+  <!-- 🔷 App Icon Grid -->
+  <div class="icon-container">
+    {% for label, link, image in apps %}
+      <div class="icon-item" style="--i: {{ loop.index }}">
+        <a href="{{ link }}">
+          <img src="/assets/erpnext/images/{{ image }}" alt="{{ label }}">
+        </a>
+        <p>{{ label }}</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Logout Button -->
+  <a href="/logout">
+    <button class="logout-btn btn-pill">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="1.5"
+           stroke-linecap="round" stroke-linejoin="round"
+           class="lucide lucide-log-out">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+        <polyline points="16 17 21 12 16 7" />
+        <line x1="21" x2="9" y1="12" y2="12" />
+      </svg>
+      <span>{{ _('Logout') }}</span>
+    </button>
+  </a>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

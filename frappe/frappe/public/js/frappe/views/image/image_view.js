@@ -23,6 +23,11 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 	set_fields() {
 		this.fields = [
 			"name",
+			"employment_type",
+			"current_address",
+			"department",
+			"cell_number",
+			"personal_email",
 			...this.get_fields_in_list_view().map((el) => el.fieldname),
 			this.meta.title_field,
 			this.meta.image_field,
@@ -59,17 +64,49 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 		this.$page.find(".layout-main-section-wrapper").addClass("image-view");
 
 		this.$result.html(`
-			<div class="image-view-container">
+			<div class="image-view-container" style="grid-template-columns: repeat(auto-fill, minmax(375px, 1fr)) !important;">
 				${html}
 			</div>
-		`);
+		`);		
 
 		this.render_count();
+		// Breadcrub customization for employee
+		setTimeout(() => {
+			const path = window.location.pathname; 
+			const breadcrumbs = document.getElementById("navbar-breadcrumbs");
+	
+			if (path === "/app/employee/view/image") {
+				if (breadcrumbs) {
+					breadcrumbs.innerHTML = "";
+	
+					const items = [
+						{ text: "Back", href: "javascript:history.back()" },
+						{ text: "Home", href: "/hr-apps" },
+						{ text: "All Apps", href: "/applications" },
+						{ text: "Employee", href: "app/employee/view/image?status=Active" }
+					];
+	
+					items.forEach((item) => {
+						const li = document.createElement("li");
+						li.classList.add("nav-item");
+	
+						const a = document.createElement("a");
+						a.classList.add("nav-link");
+						a.href = item.href;
+						a.textContent = item.text;
+	
+						li.appendChild(a);
+						breadcrumbs.appendChild(li);
+					});
+				}
+			}
+		}, 50); 
 	}
 
 	item_details_html(item) {
 		// TODO: Image view field in DocType
 		let info_fields = this.get_fields_in_list_view().map((el) => el.fieldname) || [];
+		// console.log(info_fields, 'info_fields');
 		const title_field = this.meta.title_field || "name";
 		info_fields = info_fields.filter((field) => field !== title_field);
 		let info_html = `<div><ul class="list-unstyled image-view-info">`;
@@ -86,13 +123,23 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 	}
 
 	item_html(item) {
+		// console.log(this.items, 'employee details')
 		item._name = encodeURI(item.name);
 		const encoded_name = item._name;
 		const title = strip_html(item[this.meta.title_field || "name"]);
 		const escaped_title = frappe.utils.escape_html(title);
+		
+		// Our hrms custom adding fields 
+		const designation = item.designation || "Designation Not Available";
+		const employment_type = item.employment_type || "Employment Type Not Available";
+		const current_address = item.current_address || "Address Not Available";
+		const department = item.department || "Department Not Available";
+		const cell_number = item.cell_number || "Mobile Number Not Available";
+		const personal_email = item.personal_email || "Email Not Available";
+
 		const _class = !item._image_url ? "no-image" : "";
 		const _html = item._image_url
-			? `<img data-name="${encoded_name}" src="${item._image_url}" alt="${title}">`
+			? `<img data-name="${encoded_name}" src="${item._image_url}" alt="${title}" style="width: 175px;height: 237px;">`
 			: `<span class="placeholder-text">
 				${frappe.get_abbr(title)}
 			</span>`;
@@ -100,44 +147,46 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 		let details = this.item_details_html(item);
 
 		const expand_button_html = item._image_url
-			? `<div class="zoom-view" data-name="${encoded_name}">
+			? `<div class="zoom-view" data-name="${encoded_name}" style="left: 150px !important; bottom: 150px !important;">
 				${frappe.utils.icon("expand", "xs")}
 			</div>`
 			: "";
 
 		return `
-			<div class="image-view-item ellipsis">
+			<div class="image-view-item ellipsis card-zoomin">
 				<div class="image-view-header">
 					<div>
 						<input class="level-item list-row-checkbox hidden-xs"
 							type="checkbox" data-name="${escape(item.name)}">
-						${this.get_like_html(item)}
+							${this.get_like_html(item)}
 					</div>
-				</span>
 				</div>
-				<div class="image-view-body ${_class}">
-					<a data-name="${encoded_name}"
-						title="${encoded_name}"
-						href="${this.get_form_link(item)}"
-					>
-						<div class="image-field"
-							data-name="${encoded_name}"
-						>
-							${_html}
+				<div class="image-view-body ${_class}" style="display: flex !important; align-items: flex-start !important;">
+					<div style="flex: 0 0 auto !important;">
+						<a data-name="${encoded_name}" title="${encoded_name}" href="${this.get_form_link(item)}">
+							<div data-name="${encoded_name}">
+								${_html}
+							</div>
+						</a>
+						${expand_button_html}
+					</div>
+
+					<div class="employee-details" style="flex: 1 !important; line-height: 1.6 !important;padding: 0px 10px 10px !important;">
+						<div class="image-title">
+							<span class="ellipsis" title="${escaped_title}">
+								<a class="ellipsis" href="${this.get_form_link(item)}"
+									title="${escaped_title}" data-doctype="${this.doctype}" data-name="${item.name}">
+									${title}
+								</a>
+							</span>
 						</div>
-					</a>
-					${expand_button_html}
-				</div>
-				<div class="image-view-footer">
-					<div class="image-title">
-						<span class="ellipsis" title="${escaped_title}">
-							<a class="ellipsis" href="${this.get_form_link(item)}"
-								title="${escaped_title}" data-doctype="${this.doctype}" data-name="${item.name}">
-								${title}
-							</a>
-						</span>
+						${designation}<br>
+						${employment_type}<br>
+						${department}<br>
+						${cell_number}<br>
+						${personal_email}<br>
+						${details}
 					</div>
-					${details}
 				</div>
 			</div>
 		`;
