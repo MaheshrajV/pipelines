@@ -29,3 +29,6 @@ hrms/*
 hrms/hrms/__pycache__/
 hrms/hrms/public/node_modules/
 hrms/hrms/public/dist/
+#  Ignore frontend build assets
+hrms/hrms/public/frontend/assets/*
+!hrms/hrms/public/frontend/assets/.gitkeep
