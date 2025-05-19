@@ -6,6 +6,11 @@ no_cache: 1
 {%- block navbar -%} {% from "frappe/templates/includes/avatar_macro.html" import avatar %} {%-
 endblock -%} {%- block footer -%} {%- endblock -%} {% block content %}
 <div class="container">
+	{% if frappe.session.user != 'Guest' %}
+		<script>
+			window.location.href = "/applications";
+		</script>
+	{% endif %}
 	<div class="apps-container">
 		<div class="title">{{ _('Select an app to continue') }}</div>
 		{% set appsCount = apps|length if apps|length <= 6 else 6 %}
