@@ -199,7 +199,14 @@ frappe.ui.Sidebar = class Sidebar {
 		const route_key = segments[2]; 
 		// console.log(route_key, 'sidebar_route_key');
 
-		const customSidebar = this.get_custom_sidebar_items(route_key);
+		let customSidebar = '';
+
+		if (route_key === 'dashboard-view' && segments[3] === 'employee%20lifecycle') {
+			customSidebar = this.get_custom_sidebar_items('employee');
+		} else {
+			customSidebar = this.get_custom_sidebar_items(route_key);
+		}
+
 		// const customSidebar = null;
 
 		if (customSidebar) {

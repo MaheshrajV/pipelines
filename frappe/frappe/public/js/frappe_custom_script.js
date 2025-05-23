@@ -54,7 +54,7 @@ function handleRouteLogic() {
 // Route change
 frappe.router.on('change', () => {
     const routeStr = window.location.pathname;
-    if (routeStr == '/app/overview' || routeStr == '/app/employee'){
+    if (routeStr == '/app/overview' || routeStr == '/app/employee' || routeStr == '/app/dashboard-view/employee%20lifecycle'){
         if (frappe.app.sidebar && frappe.app.sidebar.make_sidebar) {
             frappe.app.sidebar.make_sidebar();
         }
