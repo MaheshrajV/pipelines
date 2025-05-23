@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="csrf-token" content="{{ csrf_token }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HRMS</title>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <style>
@@ -67,8 +68,9 @@
       position: absolute;
       top: 4%;
       right: 4%;
-      width: 90px;
-      height: 80px;
+      width: 8vw;
+      max-width: 90px;
+      height: auto;
       /* animation: rotateIn 1s ease-out; */
 	  animation: bounce 2s infinite;
       z-index: 999;
@@ -85,20 +87,35 @@
         }
     }
 
-    .icon-container {
+    /* .icon-container {
         background: #dfdde8;
         padding: 100px 100px;
+		padding: 5vw;
         border-radius: 32px;
         box-shadow: 8px 8px 20px #ffffff;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 40px;
         width: 65%;
+		width: 90%;
         max-width: 1100px;
         animation: slideInFromRight 0.8s ease-out forwards;
         text-align: center;
         position: relative;
-    }
+    } */
+	.icon-container {
+		background: #dfdde8;
+		padding: 5vw;
+		border-radius: 2vw;
+		box-shadow: 8px 8px 20px #ffffff;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		gap: 2vw;
+		width: 90%;
+		max-width: 1000px;
+		animation: slideInFromRight 0.8s ease-out forwards;
+		text-align: center;
+	}
 
     .icon-item {
       display: flex;
@@ -111,8 +128,10 @@
     .icon-item a {
       background-color: #f0fdf4;
       border-radius: 50%;
-      width: 120px;
-      height: 120px;
+      width: 20vw;
+	  max-width: 120px;
+	  height: 20vw;
+	  max-height: 120px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -176,6 +195,25 @@
 	.logout-btn:hover {
 		transform: scale(1.2);
 	}
+	@media screen and (max-width: 768px) {
+		.icon-container {
+			grid-template-columns: repeat(2, 1fr);
+			padding: 5vw;
+			gap: 20px;
+		}
+
+		.dashboard-title {
+			font-size: 22px;
+			top: 10px;
+		}
+
+		.logout-btn {
+			font-size: 14px;
+			bottom: 5%;
+			left: 3%;
+		}
+	}
+
   </style>
 </head>
 <body>
@@ -194,13 +232,12 @@
         {% set company_logo = frappe.db.get_value("Company", employee[0].company, "company_logo") %}
     {% endif %}
 
-    {% if user == "Administrator" %}
-        <img class="company-logo" src="{{ app_logo }}" alt="App Logo">
-    {% elif company_logo %}
-        <img class="company-logo" src="{{ company_logo }}" alt="Company Logo">
-    {% else %}
-        <img class="company-logo" src="/assets/my_custom_app/images/default-logo.png" alt="Default Logo">
-    {% endif %}
+    {% if user == "Administrator" and app_logo %}
+		<img class="company-logo" src="{{ app_logo }}" alt="App Logo">
+	{% elif company_logo %}
+		<img class="company-logo" src="{{ company_logo }}" alt="Company Logo">
+	{% endif %}
+
   <!-- 🔷 App Icon Grid -->
   <div class="icon-container">
     <div class="icon-item">
