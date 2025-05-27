@@ -19,7 +19,7 @@ def get_context(context):
     context.logo = logo
     context.apps = [
         ("HRMS", "/hr-apps", "hrms.png"),
-        ("Supply Chain", "#", "supply-chain.png"),
+        ("Supply Chain", "/app/home", "supply-chain.png"),
         ("Sales", "/app/selling", "sales.png"),
         ("Operations", "#", "operation.png"),
         ("Manufactures", "#", "manufactures.png"),

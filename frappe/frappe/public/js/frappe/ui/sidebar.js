@@ -203,11 +203,15 @@ frappe.ui.Sidebar = class Sidebar {
 
 		if (route_key === 'dashboard-view' && segments[3] === 'employee%20lifecycle') {
 			customSidebar = this.get_custom_sidebar_items('employee');
-		} else {
+		} else if ((route_key === 'dashboard-view' || route_key === 'customer' ) && (segments[3].toLowerCase() === 'crm' || segments[3] === 'view')) {
+			customSidebar = this.get_custom_sidebar_items('crm');
+		} 
+		// else if (route_key === 'dashboard-view' && segments[3] === 'Supply%20chain') {
+		// 	customSidebar = this.get_custom_sidebar_items('supply-chain');
+		// }
+		 else {
 			customSidebar = this.get_custom_sidebar_items(route_key);
 		}
-
-		// const customSidebar = null;
 
 		if (customSidebar) {
 			// Render custom sidebar
@@ -259,6 +263,51 @@ frappe.ui.Sidebar = class Sidebar {
 					}
 				]
 			},
+			"crm": {
+				title: "CRM",
+				items: [
+					{
+						name: "dashboard-view/CRM",
+						title: "Dashboard",
+						icon: "home",
+						link_to: "dashboard-view",
+						public: 1
+					},
+					{
+						name: "customer/view/list?customer_type=Company",
+						title: "Customer",
+						icon: "users",
+						link_to: "customer",
+						public: 1
+					}
+				]
+			},
+			// "supply-chain": {
+			// 	title: "Supply Chain",
+			// 	items: [
+			// 		{
+			// 			name: "dashboard-view/Supply%20chain",
+			// 			title: "Dashboard",
+			// 			icon: "home",
+			// 			link_to: "dashboard-view",
+			// 			public: 1
+			// 		},
+			// 		{
+			// 			name: "stock",
+			// 			title: "Stock",
+			// 			icon: "users",
+			// 			link_to: "dashboard-view",
+			// 			public: 1
+			// 		},
+			// 		{
+			// 			name: "",
+			// 			title: "Customer",
+			// 			icon: "users",
+			// 			link_to: "customer",
+			// 			public: 1
+			// 		}
+			// 	]
+			// },
 			"attendance": {
 				title: "Attendance Panel",
 				items: [

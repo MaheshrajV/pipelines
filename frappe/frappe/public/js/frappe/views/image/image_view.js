@@ -3,6 +3,8 @@
  */
 frappe.provide("frappe.views");
 
+var path = window.location.pathname; 
+
 frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 	get view_name() {
 		return "Image";
@@ -21,18 +23,43 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 	}
 
 	set_fields() {
-		this.fields = [
-			"name",
-			"employment_type",
-			"current_address",
-			"department",
-			"cell_number",
-			"personal_email",
-			...this.get_fields_in_list_view().map((el) => el.fieldname),
-			this.meta.title_field,
-			this.meta.image_field,
-			"_liked_by",
-		];
+		// Customization on employee card view
+		if (path === '/app/employee/view/image') {
+			this.fields = [
+				"name",
+				"employment_type",
+				"current_address",
+				"department",
+				"cell_number",
+				"personal_email",
+				"company_email",
+				...this.get_fields_in_list_view().map((el) => el.fieldname),
+				this.meta.title_field,
+				this.meta.image_field,
+				"_liked_by",
+			];
+		} else if (path === '/app/customer/view/image') {
+			this.fields = [
+				"name",
+				"email_id",
+				"custom_linked_company",
+				"mobile_no",
+				// "custom_requirements",
+				...this.get_fields_in_list_view().map((el) => el.fieldname),
+				this.meta.title_field,
+				this.meta.image_field,
+				"_liked_by",
+			];
+		} else {
+			this.fields = [
+				"name",
+				...this.get_fields_in_list_view().map((el) => el.fieldname),
+				this.meta.title_field,
+				this.meta.image_field,
+				"_liked_by",
+			];
+		}
+		
 	}
 
 	prepare_data(data) {
@@ -64,7 +91,7 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 		this.$page.find(".layout-main-section-wrapper").addClass("image-view");
 
 		this.$result.html(`
-			<div class="image-view-container" style="grid-template-columns: repeat(auto-fill, minmax(375px, 1fr)) !important;">
+			<div class="image-view-container" style="grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)) !important;">
 				${html}
 			</div>
 		`);		
@@ -72,18 +99,15 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 		this.render_count();
 		// Breadcrub customization for employee
 		setTimeout(() => {
-			const path = window.location.pathname; 
 			const breadcrumbs = document.getElementById("navbar-breadcrumbs");
-	
+			
 			if (path === "/app/employee/view/image") {
 				if (breadcrumbs) {
 					breadcrumbs.innerHTML = "";
-	
 					const items = [
 						{ text: "Back", href: "javascript:history.back()" },
 						{ text: "Home", href: "/hr-apps" },
-						{ text: "All Apps", href: "/applications" },
-						{ text: "Employee", href: "app/employee/view/image?status=Active" }
+						{ text: "All Apps", href: "/applications" }
 					];
 	
 					items.forEach((item) => {
@@ -109,7 +133,7 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 		// console.log(info_fields, 'info_fields');
 		const title_field = this.meta.title_field || "name";
 		info_fields = info_fields.filter((field) => field !== title_field);
-		let info_html = `<div><ul class="list-unstyled image-view-info">`;
+		let info_html = `<div><ul class="list-unstyled image-view-info" style="font-size: .62rem;">`;
 		let set = false;
 		info_fields.forEach((field, index) => {
 			if (item[field] && !set) {
@@ -122,32 +146,141 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 		return info_html;
 	}
 
+	// item_html(item) {
+	// 	// console.log(this.items, 'employee details')
+	// 	item._name = encodeURI(item.name);
+	// 	const encoded_name = item._name;
+	// 	const title = strip_html(item[this.meta.title_field || "name"]);
+	// 	const escaped_title = frappe.utils.escape_html(title);
+		
+	// 	let designation = '', 
+	// 		employment_type = '',
+	// 		department = '',
+	// 		cell_number = '',
+	// 		personal_email = '';
+
+	// 	if (path === '/app/employee/view/image') {
+	// 		// Our hrms custom adding fields 
+	// 		item.designation || "Designation Not Available";
+	// 		item.employment_type || "Employment Type Not Available";
+	// 		item.current_address || "Address Not Available";
+	// 		item.department || "Department Not Available";
+	// 		item.cell_number || "Mobile Number Not Available";
+	// 		item.personal_email || "Email Not Available";
+	// 	} 
+		
+	// 	const _class = !item._image_url ? "no-image" : "";
+	// 	const _html = item._image_url
+	// 		? `<img data-name="${encoded_name}" src="${item._image_url}" alt="${title}" style="width: 175px;height: 237px;">`
+	// 		: `<span class="placeholder-text">
+	// 			${frappe.get_abbr(title)}
+	// 		</span>`;
+
+	// 	let details = this.item_details_html(item);
+
+	// 	const expand_button_html = item._image_url
+	// 		? `<div class="zoom-view" data-name="${encoded_name}" style="left: 150px !important; bottom: 150px !important;">
+	// 			${frappe.utils.icon("expand", "xs")}
+	// 		</div>`
+	// 		: "";
+
+	// 	return `
+	// 		<div class="image-view-item ellipsis card-zoomin">
+	// 			<div class="image-view-header">
+	// 				<div>
+	// 					<input class="level-item list-row-checkbox hidden-xs"
+	// 						type="checkbox" data-name="${escape(item.name)}">
+	// 						${this.get_like_html(item)}
+	// 				</div>
+	// 			</div>
+	// 			<div class="image-view-body ${_class}" style="display: flex !important; align-items: flex-start !important;">
+	// 				<div style="flex: 0 0 auto !important;">
+	// 					<a data-name="${encoded_name}" title="${encoded_name}" href="${this.get_form_link(item)}">
+	// 						<div data-name="${encoded_name}">
+	// 							${_html}
+	// 						</div>
+	// 					</a>
+	// 					${expand_button_html}
+	// 				</div>
+
+	// 				<div class="employee-details" style="flex: 1 !important; line-height: 1.6 !important;padding: 0px 10px 10px !important;">
+	// 					<div class="image-title">
+	// 						<span class="ellipsis" title="${escaped_title}">
+	// 							<a class="ellipsis" href="${this.get_form_link(item)}"
+	// 								title="${escaped_title}" data-doctype="${this.doctype}" data-name="${item.name}">
+	// 								${title}
+	// 							</a>
+	// 						</span>
+	// 					</div>
+	// 					if (path === '/app/employee/view/image') {
+	// 						${designation}<br>
+	// 						${employment_type}<br>
+	// 						${department}<br>
+	// 						${cell_number}<br>
+	// 						${personal_email}<br>
+	// 						${details}
+	// 					} else {
+	// 					 	${customer_type}<br>
+	// 					}
+						
+	// 				</div>
+	// 			</div>
+	// 		</div>
+	// 	`;
+	// }
 	item_html(item) {
-		// console.log(this.items, 'employee details')
 		item._name = encodeURI(item.name);
 		const encoded_name = item._name;
 		const title = strip_html(item[this.meta.title_field || "name"]);
 		const escaped_title = frappe.utils.escape_html(title);
-		
-		// Our hrms custom adding fields 
-		const designation = item.designation || "Designation Not Available";
-		const employment_type = item.employment_type || "Employment Type Not Available";
-		const current_address = item.current_address || "Address Not Available";
-		const department = item.department || "Department Not Available";
-		const cell_number = item.cell_number || "Mobile Number Not Available";
-		const personal_email = item.personal_email || "Email Not Available";
+
+		let designation = '', 
+			employment_type = '',
+			department = '',
+			cell_number = '',
+			personal_email = '',
+			company_email = '',
+			customer_email_id = '',
+			customer_company_name = '',
+			customer_type = '',
+			customer_mobile_no,
+			employeeDetails = '';
+
+		if (path === '/app/employee/view/image') {
+			designation = item.designation || "Designation Not Available";
+			employment_type = item.employment_type || "Employment Type Not Available";
+			department = item.department || "Department Not Available";
+			cell_number = item.cell_number || "Mobile Number Not Available";
+			company_email = item.company_email || "Company Email Not Available";
+
+			employeeDetails = `
+				${designation}<br>
+				${employment_type}<br>
+				${department}<br>
+				${cell_number}<br>
+				${company_email}<br>
+				${this.item_details_html(item)}
+			`;
+		} else {
+			customer_email_id = item.email_id || "Email Not Available";
+			customer_company_name = item.custom_linked_company || "Company not Available"
+			customer_type = item.customer_type || "Customer Type Not Available";
+			customer_mobile_no = item.mobile_no || "Mobile No Not Available";
+			employeeDetails = `
+				${customer_email_id}<br>
+				${customer_company_name}<br>
+				${customer_type}<br>
+				${customer_mobile_no}<br>
+			`;
+		}
 
 		const _class = !item._image_url ? "no-image" : "";
 		const _html = item._image_url
-			? `<img data-name="${encoded_name}" src="${item._image_url}" alt="${title}" style="width: 175px;height: 237px;">`
-			: `<span class="placeholder-text">
-				${frappe.get_abbr(title)}
-			</span>`;
-
-		let details = this.item_details_html(item);
+			? `<img data-name="${encoded_name}" src="${item._image_url}" alt="${title}" style="width: 100px;height: 140px;">`
+			: `<span class="placeholder-text">${frappe.get_abbr(title)}</span>`;
 
 		const expand_button_html = item._image_url
-			? `<div class="zoom-view" data-name="${encoded_name}" style="left: 150px !important; bottom: 150px !important;">
+			? `<div class="zoom-view" data-name="${encoded_name}" style="left: 71px !important; bottom: 122px !important;">
 				${frappe.utils.icon("expand", "xs")}
 			</div>`
 			: "";
@@ -158,7 +291,7 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 					<div>
 						<input class="level-item list-row-checkbox hidden-xs"
 							type="checkbox" data-name="${escape(item.name)}">
-							${this.get_like_html(item)}
+						${this.get_like_html(item)}
 					</div>
 				</div>
 				<div class="image-view-body ${_class}" style="display: flex !important; align-items: flex-start !important;">
@@ -171,7 +304,7 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 						${expand_button_html}
 					</div>
 
-					<div class="employee-details" style="flex: 1 !important; line-height: 1.6 !important;padding: 0px 10px 10px !important;">
+					<div class="employee-details" style="flex: 1 !important; line-height: 1.6 !important;padding: 0px 10px 10px !important;font-size: .62rem !important;">
 						<div class="image-title">
 							<span class="ellipsis" title="${escaped_title}">
 								<a class="ellipsis" href="${this.get_form_link(item)}"
@@ -180,17 +313,14 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 								</a>
 							</span>
 						</div>
-						${designation}<br>
-						${employment_type}<br>
-						${department}<br>
-						${cell_number}<br>
-						${personal_email}<br>
-						${details}
+						${employeeDetails}
 					</div>
 				</div>
 			</div>
 		`;
 	}
+
+
 
 	get_attached_images() {
 		return frappe

@@ -51,13 +51,37 @@ frappe.breadcrumbs = {
 
 	update() {
 		var breadcrumbs = this.all[frappe.breadcrumbs.current_page()];
-
+		console.log(breadcrumbs, 'BBBBBBBBBBBBBBBBBRRRRRRRRRRRRRRRRRREEEEEEEEEEEEEEEAAAAAAAAAAAAAAAADDDDDDD');
+		var customRouteAndLables = {
+			// "Customer": [
+			// 	{	route: "javascript: history.back()", label: "Back" },
+			// 	{	route: "/applications", label: "Home" }
+			// ],
+			"Employee" : [
+				{	route: "javascript: history.back()", label: "Back" },
+				{	route: "/hr-apps", label: "Home" },
+				{	route: "/applications", label: "All apps" }
+			]
+		};
 		this.clear();
 		if (!breadcrumbs) return this.toggle(false);
 
 		if (breadcrumbs.type === "Custom") {
 			this.set_custom_breadcrumbs(breadcrumbs);
-		} else {
+		} 
+		// else if (breadcrumbs?.doctype === "Customer" && breadcrumbs?.module === "Selling") {
+		// 	customRouteAndLables?.Customer.forEach(each => {
+		// 		this.set_custom_breadcrumbs(each);
+		// 	})
+		// } 
+		else if (breadcrumbs?.doctype === "Employee" && 
+				(breadcrumbs?.module === "Settings" || breadcrumbs?.module === 'Setup' ) && 
+				breadcrumbs?.workspace === "Overview") {
+			customRouteAndLables?.Employee.forEach(each => {
+				this.set_custom_breadcrumbs(each);
+			})
+		}
+		else {
 			// workspace
 			this.set_workspace_breadcrumb(breadcrumbs);
 
@@ -211,6 +235,9 @@ frappe.breadcrumbs = {
 		if (title == doc.name) return; // title and name are same, don't add breadcrumb
 
 		let form_route = `/app/${frappe.router.slug(doctype)}/${encodeURIComponent(docname)}`;
+		console.log(form_route, "route formmmmmmmmmmmmmmmmmmmmmmmmmmm");
+		console.log(doc.name, "route DOOOOOOOOOocccccccccccccccc");
+
 		this.append_breadcrumb_element(form_route, doc.name);
 
 		if (view === "form") {
@@ -225,6 +252,7 @@ frappe.breadcrumbs = {
 	},
 
 	set_dashboard_breadcrumb(breadcrumbs) {
+		console.log(breadcrumbs, 'breadcrumbs');
 		const doctype = breadcrumbs.doctype;
 		const docname = frappe.get_route()[1];
 		let dashboard_route = `/app/${frappe.router.slug(doctype)}/${docname}`;
