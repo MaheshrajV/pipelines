@@ -2,7 +2,7 @@
 // Function visibility for right side profile image
 function toggleSideSection() {
     const hash = window.location.hash;
-    console.log(hash, 'hash details');
+    // console.log(hash, 'hash details');
     if (hash === '#custom_documents') {
         document.querySelectorAll('.layout-side-section.right').forEach(el => el.style.display = 'none');
     } else {
@@ -26,7 +26,6 @@ function updateBreadcrumbAndTab() {
                 { text: "Back", href: "javascript:history.back()" },
                 { text: "Home", href: "/hr-apps" },
                 { text: "All Apps", href: "/applications" },
-                { text: "Employee", href: "app/employee/view/image?status=Active" }
             ];
 
             items.forEach((item) => {

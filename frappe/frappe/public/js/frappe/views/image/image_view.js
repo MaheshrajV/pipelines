@@ -280,7 +280,7 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 			: `<span class="placeholder-text">${frappe.get_abbr(title)}</span>`;
 
 		const expand_button_html = item._image_url
-			? `<div class="zoom-view" data-name="${encoded_name}" style="left: 71px !important; bottom: 122px !important;">
+			? `<div class="zoom-view" data-name="${encoded_name}" style="left: 71px !important; bottom: 117px !important;">
 				${frappe.utils.icon("expand", "xs")}
 			</div>`
 			: "";
