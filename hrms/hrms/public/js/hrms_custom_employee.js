@@ -18,30 +18,33 @@ function updateBreadcrumbAndTab() {
     console.log(path, "HRMS EMPLOYEE path");
 
     const breadcrumbs = document.getElementById("navbar-breadcrumbs");
-    if (path === "/app/employee/view/image") {
-        if (breadcrumbs) {
-            breadcrumbs.innerHTML = "";
+    setInterval(() => {
+        if (path === "/app/employee/view/image") {
+            if (breadcrumbs) {
+                breadcrumbs.innerHTML = "";
 
-            const items = [
-                { text: "Back", href: "javascript:history.back()" },
-                { text: "Home", href: "/hr-apps" },
-                { text: "All Apps", href: "/applications" },
-            ];
+                const items = [
+                    { text: "Back", href: "javascript:history.back()" },
+                    { text: "Home", href: "/hr-apps" },
+                    { text: "All Apps", href: "/applications" },
+                ];
 
-            items.forEach((item) => {
-                const li = document.createElement("li");
-                li.classList.add("nav-item");
+                items.forEach((item) => {
+                    const li = document.createElement("li");
+                    li.classList.add("nav-item");
 
-                const a = document.createElement("a");
-                a.classList.add("nav-link");
-                a.href = item.href;
-                a.textContent = item.text;
+                    const a = document.createElement("a");
+                    a.classList.add("nav-link");
+                    a.href = item.href;
+                    a.textContent = item.text;
 
-                li.appendChild(a);
-                breadcrumbs.appendChild(li);
-            });
-        }
-    } 
+                    li.appendChild(a);
+                    breadcrumbs.appendChild(li);
+                });
+            }
+        } 
+    }, 50)
+    
     // else {
     //     console.log(path, "TTTTTTTTTTTTTTTTTTTTTTTAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBB");
     //     const segments = path.split('/');
