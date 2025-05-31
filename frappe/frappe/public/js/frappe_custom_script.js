@@ -52,11 +52,18 @@ function handleRouteLogic() {
 // });
 
 // Route change
+
 frappe.router.on('change', () => {
-    const routeStr = window.location.pathname;
-    if (routeStr == '/app/overview' || routeStr == '/app/employee' || routeStr == '/app/dashboard-view/employee%20lifecycle'){
-        if (frappe.app.sidebar && frappe.app.sidebar.make_sidebar) {
-            frappe.app.sidebar.make_sidebar();
-        }
+    console.log("ROuter changes on frapp custom script for sidebar menu");
+    const routesToRefresh = [
+        '/app/overview',
+        '/app/employee',
+        '/app/dashboard-view/employee%20lifecycle',
+        '/app/dashboard-view/CRM',
+        '/app/dashboard-view/recruitment'
+    ];
+
+    if (routesToRefresh.includes(window.location.pathname)) {
+        frappe.app.sidebar?.make_sidebar?.();
     }
 });

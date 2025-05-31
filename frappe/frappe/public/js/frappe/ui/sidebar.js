@@ -206,6 +206,9 @@ frappe.ui.Sidebar = class Sidebar {
 		} else if ((route_key === 'dashboard-view' || route_key === 'customer' ) && (segments[3].toLowerCase() === 'crm' || segments[3] === 'view')) {
 			customSidebar = this.get_custom_sidebar_items('crm');
 		} 
+		else if (route_key === 'dashboard-view' && segments[3].toLowerCase() === 'recruitment') {
+			customSidebar = this.get_custom_sidebar_items('recruitment');
+		}
 		// else if (route_key === 'dashboard-view' && segments[3] === 'Supply%20chain') {
 		// 	customSidebar = this.get_custom_sidebar_items('supply-chain');
 		// }
@@ -282,6 +285,25 @@ frappe.ui.Sidebar = class Sidebar {
 					}
 				]
 			},
+			"recruitment": {
+				title: "Recruitment",
+				items: [
+					{
+						name: "dashboard-view/recruitment",
+						title: "Dashboard",
+						icon: "home",
+						link_to: "dashboard-view",
+						public: 1
+					},
+					{
+						name: "recruitment",
+						title: "Recruitment",
+						icon: "users",
+						link_to: "recruitment",
+						public: 1
+					}
+				]
+			}
 			// "supply-chain": {
 			// 	title: "Supply Chain",
 			// 	items: [
@@ -308,19 +330,7 @@ frappe.ui.Sidebar = class Sidebar {
 			// 		}
 			// 	]
 			// },
-			"attendance": {
-				title: "Attendance Panel",
-				items: [
-					{
-						name: "Daily Logs",
-						title: "Daily Logs",
-						icon: "clock",
-						link_to: "daily-attendance-logs",
-						public: 1
-					}
-				]
-			}
-			// Add more custom routes here as needed
+			
 		};
 
 		return customSidebars[route_key] || null;
