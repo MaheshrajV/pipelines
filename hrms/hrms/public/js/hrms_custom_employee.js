@@ -148,14 +148,20 @@ function load_employee_attachments(frm = null, name = null) {
 $(document).ready(function () {
     console.log("CALL BY READY FUNCTION")
     toggleSideSection();
-    updateBreadcrumbAndTab();
+    // updateBreadcrumbAndTab();
+    setTimeout(() => {
+        frappe.breadcrumbs.update();
+    }, 100);
 });
 
 // Router changes
 frappe.router.on('change', () => {
     console.log("CALL BY ROUTER")
     toggleSideSection();
-    updateBreadcrumbAndTab();
+    // updateBreadcrumbAndTab();
+    setTimeout(() => {
+        frappe.breadcrumbs.update();
+    }, 100);
 });
 
 // Document information list rerendering the page
