@@ -90,11 +90,13 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 
 		this.$page.find(".layout-main-section-wrapper").addClass("image-view");
 
-		this.$result.html(`
-			<div class="image-view-container" style="grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)) !important;">
+		this.$result.html(
+			`
+			<div class="image-view-container custom-grid">	
 				${html}
 			</div>
-		`);		
+			`
+		);		
 
 		this.render_count();
 		// Breadcrub customization for employee
