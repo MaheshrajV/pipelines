@@ -33,6 +33,7 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 				"cell_number",
 				"personal_email",
 				"company_email",
+				"custom_company_contact_number",
 				...this.get_fields_in_list_view().map((el) => el.fieldname),
 				this.meta.title_field,
 				this.meta.image_field,
@@ -242,6 +243,7 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 			cell_number = '',
 			personal_email = '',
 			company_email = '',
+			company_contact_number = '',
 			customer_email_id = '',
 			customer_company_name = '',
 			customer_type = '',
@@ -252,14 +254,14 @@ frappe.views.ImageView = class ImageView extends frappe.views.ListView {
 			designation = item.designation || "Designation Not Available";
 			employment_type = item.employment_type || "Employment Type Not Available";
 			department = item.department || "Department Not Available";
-			cell_number = item.cell_number || "Mobile Number Not Available";
+			company_contact_number = item.custom_company_contact_number || "Mobile Number Not Available";
 			company_email = item.company_email || "Company Email Not Available";
 
 			employeeDetails = `
 				${designation}<br>
 				${employment_type}<br>
 				${department}<br>
-				${cell_number}<br>
+				${company_contact_number}<br>
 				${company_email}<br>
 				${this.item_details_html(item)}
 			`;
