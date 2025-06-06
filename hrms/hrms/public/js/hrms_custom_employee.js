@@ -1,3 +1,4 @@
+var pagePath = window.location.pathname;
 
 // Function visibility for right side profile image
 function toggleSideSection() {
@@ -148,7 +149,17 @@ function load_employee_attachments(frm = null, name = null) {
 $(document).ready(function () {
     console.log("CALL BY READY FUNCTION")
     toggleSideSection();
-    
+    // Employee Card Reload
+    if (pagePath === "/app/employee/view/image") {
+        const hasReloaded = sessionStorage.getItem("image_view_loaded");
+
+        if (!hasReloaded) {
+            sessionStorage.setItem("image_view_loaded", "true");
+            window.location.reload(); 
+        } else {
+            sessionStorage.removeItem("image_view_loaded"); 
+        }
+    }
     // updateBreadcrumbAndTab();
     setTimeout(() => {
         frappe.breadcrumbs.update();
@@ -159,17 +170,6 @@ $(document).ready(function () {
 frappe.router.on('change', () => {
     console.log("CALL BY ROUTER")
     toggleSideSection();
-    // Employee Card Reload
-    if (pagePath === "/app/employee/view/image") {
-        const hasReloaded = sessionStorage.getItem("image_view_loaded");
-
-        if (!hasReloaded) {
-            sessionStorage.setItem("image_view_loaded", "true");
-            window.location.reload(); // will reload only once
-        } else {
-            sessionStorage.removeItem("image_view_loaded"); 
-        }
-    }
     // updateBreadcrumbAndTab();
     setTimeout(() => {
         frappe.breadcrumbs.update();
