@@ -1,5 +1,5 @@
 import Quill from "quill";
-import ImageResize from "quill-image-resize";
+import ImageResize from "@mgreminger/quill-image-resize-module";
 import MagicUrl from "quill-magic-url";
 
 Quill.register("modules/imageResize", ImageResize);
