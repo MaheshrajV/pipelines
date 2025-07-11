@@ -1,0 +1,216 @@
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250617_103003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-17 10:30:05.482576
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250617_103003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250617_103003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250617_163002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-17 16:30:05.264126
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250617_163002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250617_163002-mahesh_local-database.sql.gz 2.8MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250619_103002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-19 10:30:05.023257
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250619_103002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250619_103002-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250619_163002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-19 16:30:05.222966
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250619_163002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250619_163002-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250620_163003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-20 16:30:05.488996
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250620_163003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250620_163003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250621_103003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-21 10:30:06.815300
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250621_103003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250621_103003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250621_163003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-21 16:30:05.383232
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250621_163003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250621_163003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250623_103002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-23 10:30:05.496464
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250623_103002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250623_103002-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250623_163002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-23 16:30:05.997402
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250623_163002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250623_163002-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250624_103003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-24 10:30:07.922181
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250624_103003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250624_103003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250624_163002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-24 16:30:05.333946
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250624_163002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250624_163002-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250625_103003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-25 10:30:06.643817
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250625_103003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250625_103003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250625_163003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-25 16:30:07.029528
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250625_163003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250625_163003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250626_103003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-26 10:30:07.009374
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250626_103003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250626_103003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250626_223003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-26 22:30:06.301503
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250626_223003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250626_223003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250627_103003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-27 10:30:06.226540
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250627_103003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250627_103003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250627_163003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-27 16:30:07.308800
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250627_163003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250627_163003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250627_223003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-27 22:30:06.824784
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250627_223003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250627_223003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250628_163003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-28 16:30:07.247201
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250628_163003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250628_163003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250629_163002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-06-29 16:30:06.955601
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250629_163002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250629_163002-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250701_103002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-01 10:30:06.584821
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250701_103002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250701_103002-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250701_163002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-01 16:30:04.875798
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250701_163002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250701_163002-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250702_103002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-02 10:30:06.650911
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250702_103002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250702_103002-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250703_103003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-03 10:30:07.282314
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250703_103003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250703_103003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250704_103003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-04 10:30:08.105821
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250704_103003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250704_103003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250704_223003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-04 22:30:07.410706
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250704_223003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250704_223003-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250707_103002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-07 10:30:04.169601
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250707_103002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250707_103002-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250707_163002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-07 16:30:04.507105
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250707_163002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250707_163002-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250708_103002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-08 10:30:04.434368
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250708_103002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250708_103002-mahesh_local-database.sql.gz 2.7MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250708_163001-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-08 16:30:02.638975
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250708_163001-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250708_163001-mahesh_local-database.sql.gz 2.6MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250709_103002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-09 10:30:04.301735
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250709_103002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250709_103002-mahesh_local-database.sql.gz 2.6MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250709_163002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-09 16:30:04.205719
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250709_163002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250709_163002-mahesh_local-database.sql.gz 2.6MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250710_103002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-10 10:30:04.348819
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250710_103002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250710_103002-mahesh_local-database.sql.gz 2.6MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250710_163002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-10 16:30:04.183567
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250710_163002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250710_163002-mahesh_local-database.sql.gz 2.6MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250711_103003-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-11 10:30:04.974937
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250711_103003-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250711_103003-mahesh_local-database.sql.gz 2.6MiB
+Backup for Site mahesh.local has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=newdb --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false newdb | /usr/bin/gzip >> ./mahesh.local/private/backups/20250711_163002-mahesh_local-database.sql.gz
+
+Backup Summary for mahesh.local at 2025-07-11 16:30:03.668252
+Config  : /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250711_163002-mahesh_local-site_config_backup.json 103.0B
+Database: /home/maheshraj/Desktop/victor/start/sites/mahesh.local/private/backups/20250711_163002-mahesh_local-database.sql.gz 2.6MiB
+Backup for Site mahesh.local has been successfully completed
